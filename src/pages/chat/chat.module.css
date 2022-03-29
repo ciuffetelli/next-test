@@ -54,3 +54,8 @@
     color: green;
     font-weight: 700;
 }
+
+.send:disabled {
+    color: #787878;
+    background: #4b4b4b;
+}

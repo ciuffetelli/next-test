@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef} from 'react'
 import { io } from "socket.io-client"
 
+import Frame from '../../component/Frame'
 import styles from './chat.module.css'
 
 type MessageType = {
@@ -79,29 +80,30 @@ function Chat(props: PropsType) {
     }
 
     return (
-        <div className={styles.chat}>
-              <h1>Chat</h1>
-          <div className={styles.chatBox}>
-              <div className={styles.chatMsg}>
-                  {chat?.map( (message, index) => {
-                      return (
-                          <p key={`msg_${index}`}><strong>{(message.userName === user) ? 'Me' : message.userName}</strong>: {message.message}</p>
-                      )
-                  })}
-              </div>
-              <div className={styles.inputBox}>
-                  <input
-                        ref={inputRef} 
-                        className={styles.input} 
-                        value={message} 
-                        onChange={event => { setMessage(event.target.value); }} 
-                        onKeyPress={event => { if(event.key === "Enter") sendMessage() }}
-                        autoFocus
-                  />
-                  <input className={styles.send} type="submit" value="Send" disabled={!connected} onClick={() => sendMessage()} />
-              </div>
-          </div>
-      </div>
+        <Frame title="Chat" pageTile="Chat" back={true}>
+            <div className={styles.chatBox}>
+                <div className={styles.chatMsg}>
+                    {chat?.map( (message, index) => {
+                        return (
+                            <p key={`msg_${index}`}><strong>{(message.userName === user) ? 'Me' : message.userName}</strong>: {message.message}</p>
+                        )
+                    })}
+                </div>
+
+                <div className={styles.inputBox}>
+                    <input
+                            ref={inputRef} 
+                            className={styles.input} 
+                            value={message} 
+                            onChange={event => { setMessage(event.target.value); }} 
+                            onKeyPress={event => { if(event.key === "Enter") sendMessage() }}
+                            disabled={!connected}
+                            autoFocus
+                    />
+                    <input className={styles.send} type="submit" value="Send" disabled={!connected} onClick={() => sendMessage()} />
+                </div>
+            </div>
+        </Frame>
     )
 }
 
