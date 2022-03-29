@@ -8,10 +8,21 @@ type MessageType = {
     message: string
 }
 
-const user = "User_" + String(new Date().getTime()).substr(-3);
-const BASE_URL = "https://next-test-3y5cfr4e8-ciuffetelli.vercel.app/chat"
+type PropsType = {
+    BASE_URL: string
+}
 
-const Chat: React.FC = (props) => {
+const user = "User_" + String(new Date().getTime()).substr(-3);
+
+export async function getServerSideProps() {
+    return {
+        props: {
+            BASE_URL: process.env.BASE_URL
+        }
+    }
+}
+
+function Chat(props: PropsType) {
 
     const inputRef = useRef(null)
 
@@ -22,7 +33,7 @@ const Chat: React.FC = (props) => {
 
     useEffect((): any => {
 
-        const socket = io(BASE_URL, {
+        const socket = io(props.BASE_URL, {
             path: "/api/socketio"
         })
 
