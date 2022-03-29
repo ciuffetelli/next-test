@@ -4,7 +4,7 @@ Platform of test to my personal project on Live. Please have access to live and 
 
 # Live
 
-- Vercel (https://next-test-p5uosdlbg-ciuffetelli.vercel.app/)
+- Vercel (https://next-test-delta-pink.vercel.app/)
 
 # Insues
 
