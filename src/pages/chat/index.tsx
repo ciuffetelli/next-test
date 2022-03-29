@@ -9,7 +9,7 @@ type MessageType = {
 }
 
 const user = "User_" + String(new Date().getTime()).substr(-3);
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
+const BASE_URL = process.env.BASE_URL
 
 const Chat: React.FC = (props) => {
 
