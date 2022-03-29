@@ -13,6 +13,8 @@ const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
 
 const Chat: React.FC = (props) => {
 
+    console.log(process.env.BASE_URL)
+
     const inputRef = useRef(null)
 
     const [connected, setConnected] = useState<boolean>(false)

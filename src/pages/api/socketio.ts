@@ -11,7 +11,8 @@ export const config = {
 
 export default async (request: NextApiRequest, response: NextApiResponseServerIO) => {
     if(!response.socket.server.io) {
-        console.log("New Socket...")
+        
+        process.stdout.write("New Socket...")
         const httpServer: NetServer = response.socket.server as any;
         const io = new ServerIO(httpServer, {
             path: "/api/socketio",
