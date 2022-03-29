@@ -9,11 +9,9 @@ type MessageType = {
 }
 
 const user = "User_" + String(new Date().getTime()).substr(-3);
-const BASE_URL = process.env.BASE_URL
+const BASE_URL = "https://next-test-3y5cfr4e8-ciuffetelli.vercel.app/chat"
 
 const Chat: React.FC = (props) => {
-
-    console.log(process.env.BASE_URL)
 
     const inputRef = useRef(null)
 
