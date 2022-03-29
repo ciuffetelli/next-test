@@ -17,7 +17,7 @@ const user = "User_" + String(new Date().getTime()).substr(-3);
 export async function getServerSideProps() {
     return {
         props: {
-            BASE_URL: process.env.BASE_URL
+            BASE_URL: process.env.BASE_URL,
         }
     }
 }
