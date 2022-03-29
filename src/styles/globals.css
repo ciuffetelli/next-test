@@ -47,6 +47,10 @@ a {
   margin: 0;
 }
 
+.backBtn {
+  margin: -30px 150px 30px 0;
+}
+
 .footer {
   margin: auto auto 10px;
 }
