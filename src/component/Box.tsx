@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-export default (props) => {
+import { BoxProps } from "../types/this";
+
+export default (props: BoxProps) => {
     return (
         <Link href={props.href}>
             <div className="box">
