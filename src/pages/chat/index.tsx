@@ -8,12 +8,21 @@ type MessageType = {
     message: string
 }
 
+type PropsType = {
+    BASE_URL: string
+}
+
 const user = "User_" + String(new Date().getTime()).substr(-3);
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
 
-const Chat: React.FC = (props) => {
+export async function getServerSideProps() {
+    return {
+        props: {
+            BASE_URL: process.env.BASE_URL,
+        }
+    }
+}
 
-    console.log(process.env.BASE_URL)
+function Chat(props: PropsType) {
 
     const inputRef = useRef(null)
 
@@ -24,7 +33,7 @@ const Chat: React.FC = (props) => {
 
     useEffect((): any => {
 
-        const socket = io(BASE_URL, {
+        const socket = io(props.BASE_URL, {
             path: "/api/socketio"
         })
 
