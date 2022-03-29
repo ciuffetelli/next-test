@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef} from 'react'
-import SocketIoClient from "socket.io-client"
+import { io } from "socket.io-client"
 
 import styles from './chat.module.css'
 
@@ -9,8 +9,9 @@ type MessageType = {
 }
 
 const user = "User_" + String(new Date().getTime()).substr(-3);
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
 
-const Chat: React.FC = () => {
+const Chat: React.FC = (props) => {
 
     const inputRef = useRef(null)
 
@@ -21,7 +22,7 @@ const Chat: React.FC = () => {
 
     useEffect((): any => {
 
-        const socket = SocketIoClient.connect(process.env.BASE_URL, {
+        const socket = io(BASE_URL, {
             path: "/api/socketio"
         })
 
@@ -63,8 +64,6 @@ const Chat: React.FC = () => {
             })
 
             if(response.ok) setMessage("")
-
-            inputRef?.current?.focus()
         }
     }
 
