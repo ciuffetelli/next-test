@@ -16,6 +16,9 @@ type PropsType = {
 const user = "User_" + String(new Date().getTime()).substr(-3);
 
 export async function getServerSideProps() {
+    
+    console.log(process.env.BASE_URL)
+    
     return {
         props: {
             BASE_URL: process.env.BASE_URL,
