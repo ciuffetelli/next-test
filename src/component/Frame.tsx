@@ -1,13 +1,21 @@
 import Head from 'next/head'
 import Link from 'next/link'
-export default (props: any) => {
+
+export type FrameProps = {
+    title?: string,
+    pageTitle: string,
+    back: boolean,
+    children?: React.ReactChild[]
+}
+
+export default (props: FrameProps) => {
     return (
         <>
             <Head>
                 <title>NextJs Test Plataform { (props.title) ? `| ${props.title}` : ''}</title>
             </Head>
 
-            {props.pageTile ? (<h1>{props.pageTile}</h1>) : '' }
+            {props.pageTitle ? (<h1>{props.pageTitle}</h1>) : '' }
             {props.back ? (<Link href='/'><a  className="backBtn">Back</a></Link>) : '' }
 
         {props.children}
