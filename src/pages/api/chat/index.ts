@@ -3,10 +3,10 @@ import { NextApiResponseServerIO } from "../../../types/next";
 
 export default (request: NextApiRequest, response: NextApiResponseServerIO) => {
     if(request.method === "POST"){
-        const message = request.body
+        const data = request.body
 
-        response?.socket?.server?.io?.emit("message", message)
+        response?.socket?.server?.io?.emit(data.event, data)
 
-        response.status(201).json(message)
+        response.status(201).json(data)
     }
 }

@@ -54,3 +54,8 @@ a {
 .footer {
   margin: auto auto 10px;
 }
+
+.error {
+  display: block;
+  color: #ff0a0a;
+}

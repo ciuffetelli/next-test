@@ -1,0 +1,88 @@
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.backgroundBlur {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    backdrop-filter: blur(1px);
+    background: #4b4747cf;
+}
+
+.modalInner {
+    background: #fff;
+    border-radius: 5px;
+    border: 0.5px solid #ffffff45;
+    background: #4b4747;
+}
+
+.modalHeader {
+    position: relative;
+    padding: 3px 10px;
+    border-bottom: 0.5px solid #29292982;
+}
+
+.modalHeader h2 {
+    margin: 0;
+}
+
+.btnClone {
+    position: absolute;
+    display: flex;
+    width: 23.6px;
+    height: 23.6px;
+    top: -20px;
+    right: -20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1px;
+    border-radius: 100%;
+    background: #4b4747;
+    transition: 0.5s ease-in-out;
+}
+
+.btnClone:hover {
+    border: 0.5px solid #3a3939;
+    transform: scale(1.1);
+    transform: rotate(360deg);
+    background-color: #323131;
+    cursor: pointer;
+}
+
+.modalContent {
+    padding: 0 10px;
+    margin: 10px auto;
+}
+
+.modalFooter {
+    display: flex;
+    padding: 3px 10px;
+    border-top: 0.5px solid #29292982;
+}
+
+.btnDone {
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    padding: 0;
+    border-radius: 5px;
+    border: none;
+    background: #ccc;
+    color: green;
+    font-weight: 700;
+    cursor: pointer;
+}

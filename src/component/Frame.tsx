@@ -5,7 +5,7 @@ export type FrameProps = {
     title?: string,
     pageTitle: string,
     back: boolean,
-    children?: React.ReactChild[]
+    children?: JSX.Element
 }
 
 export default (props: FrameProps) => {
